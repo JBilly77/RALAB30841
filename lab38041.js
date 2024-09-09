@@ -55,7 +55,10 @@ for (let i = 0; i < rows.length; i++) {
     twoDimArr.push(cells);
   }
   console.log(twoDimArr);
+
   //===========================PART THREE============================//
+  //Transforming Data
+
   // Create an array to store the objects
 let rowsTobjects = [];
 
@@ -72,3 +75,33 @@ for (let i = 1; i < twoDimArr.length; i++) {
 }
 // Print the objects array
 console.log(rowsTobjects);
+
+//===========================PART FOUR============================//
+//Sorting and Manipulating Data
+
+// Remove the last element from the objects array
+rowsTobjects.pop();
+// Insert the object at index 1
+rowsTobjects.splice(1, 0, { id: "48", name: "Barry", occupation: "Runner", age: "25" });
+// Add the object to the end of the objects array
+rowsTobjects.push({ id: "7", name: "Bilbo", occupation: "None", age: "111" });
+console.log(rowsTobjects);
+//calculate the average age of the group
+let sum = 0;
+for (let i = 0; i < rowsTobjects.length; i++) {
+  sum = sum + Number(rowsTobjects[i].age);
+}
+let averageAge = sum / rowsTobjects.length;
+console.log("The average age of the group is: " + averageAge);
+
+//===========================PART FIVE============================//
+//Full Circle
+
+//transform the final set of data back into CSV forma
+let csv = "id,name,occupation,age,location\n";
+
+rowsTobjects.forEach(obj => {
+  csv += `${obj.id},${obj.name},${obj.occupation},${obj.age}\n`;
+});
+
+console.log(csv);
