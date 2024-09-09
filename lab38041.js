@@ -39,3 +39,36 @@ for (let i = 1; i < rows.length; i++) {
   // Print the values for the person
   console.log(Object.values(person));
 }
+//===========================PART TWO============================//
+// Declare a variable to store the number of columns
+let numberColumns = rows[0].split(",").length;
+console.log(numberColumns);
+
+//Store your results in a two-dimensional array:
+let twoDimArr = [];
+// Iterate over each row
+for (let i = 0; i < rows.length; i++) {
+    // Split the row into cells
+    let cells = rows[i].split(",");
+  
+    // Add the row to the csvData array
+    twoDimArr.push(cells);
+  }
+  console.log(twoDimArr);
+  //===========================PART THREE============================//
+  // Create an array to store the objects
+let rowsTobjects = [];
+
+// Iterate over each row
+for (let i = 1; i < twoDimArr.length; i++) {
+  // Create an object with lowercase keys
+  let obj = {};
+  for (let j = 0; j < twoDimArr[0].length; j++) {
+    obj[twoDimArr[0][j].toLowerCase()] = twoDimArr[i][j];
+  }
+
+  // Add the object to the objects array
+  rowsTobjects.push(obj);
+}
+// Print the objects array
+console.log(rowsTobjects);
